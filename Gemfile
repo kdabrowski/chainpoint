@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 6.1.4'
 gem 'puma', '~> 3.11'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -13,6 +13,7 @@ gem 'bootstrap', '>= 4.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rubocop-rails'
   gem 'pry'
 end
 

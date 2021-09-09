@@ -1,0 +1,2 @@
+class ChainpointEntry < ApplicationRecord
+end
