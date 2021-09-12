@@ -1,21 +1,36 @@
-<%= form_for @badge, url: "/create", method: :post , html: {:class => "form-horizontal center"} do |f| %>
-      <div class="form-group">
-        <%= f.label :badge_issue_date, "Badge issue date:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.time_field :badge_issue_date, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :recipient_name, "Badge recipient name:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :recipient_name, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :uuid, "Badge uuid", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :uuid, class: "form-control" %>
-        </div>
-      </div>
-      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
- <% end %>
+<%= form_for @badge, url: '/create' do |f| %>
+  <div>
+    <%= f.label :badge_issue_date, "Badge issue date:" %>
+    <div>
+      <%= f.time_field :badge_issue_date %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :recipient_name, "Badge recipient name:" %>
+    <div>
+      <%= f.text_field :recipient_name %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :uuid, "Badge uuid" %>
+    <div>
+      <%= f.text_field :uuid %>
+    </div>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>
+<% if @badge.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@badge.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @badge.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
